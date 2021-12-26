@@ -7,6 +7,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
+import edu.wpi.first.wpilibj.Relay;
+
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -35,6 +39,13 @@ public class RobotContainer {
   private final Command drivestraight = new DriveStraight(m_drivebase, 0.8);
   private final Command m_suck = new Sucking(m_sucker, 1);
   private final Command m_shoot = new Shooting(m_shooter, 2);
+
+  public DigitalInput m_limitSwitch = new DigitalInput(0);
+  public DigitalOutput m_limitSwitch1 = new DigitalOutput(1); 
+  public Relay m_relay = new Relay(0);
+
+  m_limitSwitch1.set(1);
+
 
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
